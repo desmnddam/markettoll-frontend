@@ -87,10 +87,10 @@ const ProductReviewPage = () => {
       localStorage.setItem("product", JSON.stringify(response.data));
       return response.data;
     } catch (error) {
-      // console.error("Error uploading product:", error);
-      if (error) {
-        toast.error(error?.response?.data?.message || "Something went wrong");
-      }
+      console.error("Error uploading product:", error);
+      // if (error) {
+      //   toast.error(error?.response?.data?.message || "Something went wrong");
+      // }
       if (error.status == 409) {
         // navigate("/subscriptions");
         setOpenModal(true);

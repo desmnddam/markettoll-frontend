@@ -211,20 +211,20 @@ const AddProductForm = () => {
     navigate("/product-review", {
       state: {
         productData: {
-          productName,
-          description,
-          productCategory,
-          productSubCategory,
-          selectedState: stateFullName,
-          selectedCity,
-          fulfillmentMethod: { selfPickup, delivery },
-          pickupAddress: isPickupAddressSameAsProfile
-            ? productPickupAddress
-            : pickupAddress,
-          price,
-          quantity,
-          productImages,
-          coverImageIndex,
+        productName,
+        description,
+        productCategory,
+        productSubCategory,
+        selectedState: stateFullName,
+        selectedCity,
+        fulfillmentMethod: { selfPickup, delivery },
+        pickupAddress: isPickupAddressSameAsProfile
+          ? productPickupAddress
+          : pickupAddress,
+        price,
+        quantity,
+        productImages,
+        coverImageIndex,
         },
       },
     });

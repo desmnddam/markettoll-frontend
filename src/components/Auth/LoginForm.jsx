@@ -93,6 +93,7 @@ const LoginForm = () => {
       // const fcmToken = await requestPermissionAndGetToken();
       // if (fcmToken) {
       setLoading(true);
+      console.log(values);
       try {
         const response = await axios.post(
           `${BASE_URL}/users/email-password-login`,

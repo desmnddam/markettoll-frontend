@@ -94,11 +94,11 @@ const VerifyOtpForm = () => {
       }
       setLoading(true);
       const endpoint =
-        verificationType === "email"
-          ? `${BASE_URL}/users/verify-email-verify-email-otp`
-          : verificationType === "forgot-password"
-          ? `${BASE_URL}/users/forgot-password-verify-email-otp`
-          : `${BASE_URL}/users/verify-phone-number-verify-sms-otp`;
+      verificationType === "email"
+      ? `${BASE_URL}/users/verify-email-verify-email-otp`
+      : verificationType === "forgot-password"
+      ? `${BASE_URL}/users/forgot-password-verify-email-otp`
+      : `${BASE_URL}/users/verify-phone-number-verify-sms-otp`;
       try {
         const res = await axios.post(
           endpoint,
@@ -113,6 +113,7 @@ const VerifyOtpForm = () => {
                 },
               }
         );
+
         resetForm();
         setOtp(["", "", "", ""]);
         toast.success(res?.data?.message);

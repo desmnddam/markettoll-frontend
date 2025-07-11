@@ -12,9 +12,9 @@ import FilterProductModal from "./FiltetProducts";
 import Pagination from "../Global/Pagination";
 
 const ProductList = () => {
+  const navigate = useNavigate();
   const [showServices, setShowServices] = useState(false);
   const [FilterModal, setFilterModal] = useState(false);
-  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [services, setServices] = useState([]);
@@ -63,6 +63,7 @@ const ProductList = () => {
     const queryString = queryParams.length ? `?${queryParams.join("&")}` : "";
 
     setLoading(true);
+    console.log("queryString", queryString);
     try {
       const res = await axios.get(
         `${BASE_URL}/users/home-screen-products${queryString}`,
@@ -109,7 +110,7 @@ const ProductList = () => {
         },
       });
       setCategories(res?.data?.data);
-      // console.log("setCategories >>>", res?.data?.data);
+      console.log("setCategories >>>", res?.data?.data);
     } catch (error) {
       console.log("home screen products err >>>>", error);
     } finally {
