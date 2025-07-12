@@ -19,7 +19,6 @@ const Navbar = () => {
   const [openNotifications, setOpenNotifications] = useState(false);
   const [openSidebar, setOpenSidebar] = useState(false);
   const loc = useLocation("");
-  console.log(loc?.pathname == "/login");
 
   const navigate = useNavigate();
   const { user, userProfile, fetchUserProfile } = useContext(AuthContext);
@@ -145,7 +144,7 @@ const Navbar = () => {
   useEffect(() => {
     fetchNotifications();
     fetchUserProfile();
-    fetchSearchedProductsHistory();
+    // fetchSearchedProductsHistory();
 
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -200,7 +199,7 @@ const Navbar = () => {
                     </button>
                   )}
                 </form>
-                {isDropdownVisible && searchHistory?.length > 0 && (
+                {/* {isDropdownVisible && searchHistory?.length > 0 && (
                   <div className="absolute top-[45px] w-[357px] left-0 right-0 bg-white border rounded-xl shadow-lg mt-1 z-10">
                     <ul className="max-h-[200px] overflow-y-auto py-2 px-5">
                       {searchHistory
@@ -223,7 +222,7 @@ const Navbar = () => {
                         ))}
                     </ul>
                   </div>
-                )}
+                )} */}
                 <button
                   type="button"
                   onClick={() => handleNavigate("/chats", "Login to see chats")}

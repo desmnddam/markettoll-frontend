@@ -26,7 +26,7 @@ const ProductList = () => {
   const [currentAddress, setCurrentAddress] = useState(true);
   const [paginationNum, setPaginationNum] = useState(1);
   const [mile, setMile] = useState(50);
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [lat, setLat] = useState({
     lat: "",
@@ -57,13 +57,13 @@ const ProductList = () => {
     } else {
       if (lat.lat) queryParams.push(`lat=${lat.lat}`);
       if (lat.lng) queryParams.push(`lng=${lat.lng}`);
-      if (mile) queryParams.push(`radius=${mile}`);
+      if (mile > 0) queryParams.push(`radius=`);
     }
 
     const queryString = queryParams.length ? `?${queryParams.join("&")}` : "";
 
     setLoading(true);
-    console.log("queryString", queryString);
+    console.log("queryString", currentAddress);
     try {
       const res = await axios.get(
         `${BASE_URL}/users/home-screen-products${queryString}`,
