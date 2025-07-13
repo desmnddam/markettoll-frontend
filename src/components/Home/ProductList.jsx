@@ -93,6 +93,7 @@ const ProductList = () => {
         `${BASE_URL}/users/home-screen-services?page=${page}`,
         options
       );
+      console.log("services res >>>", res?.data?.data);
       setServices(res?.data?.data);
     } catch (error) {
       console.log("services error >>>>", error);
@@ -144,6 +145,7 @@ const ProductList = () => {
   const handleShowServices = (category) => {
     if (category == "services") {
       setShowServices(true);
+      fetchServices();
     } else {
       setShowServices(false);
     }
@@ -214,8 +216,8 @@ const ProductList = () => {
               type="button"
               onClick={() => filterProducts("All")}
               className={`${productCategory == "All"
-                  ? "blue-bg text-white"
-                  : "bg-[#F7F7F7] text-black"
+                ? "blue-bg text-white"
+                : "bg-[#F7F7F7] text-black"
                 } text-[13px] font-medium rounded-lg px-3 py-2`}
             >
               All
@@ -227,8 +229,8 @@ const ProductList = () => {
                   type="button"
                   onClick={() => filterProducts(p?.category)}
                   className={`${productCategory === p?.category
-                      ? "blue-bg text-white"
-                      : "bg-[#F7F7F7] text-black"
+                    ? "blue-bg text-white"
+                    : "bg-[#F7F7F7] text-black"
                     } text-[13px] font-medium rounded-lg px-3 py-2`}
                 >
                   {p?.category}

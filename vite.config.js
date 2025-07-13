@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const csslogger = require('vite-postcss-tools');
+// const csslogger = require('vite-postcss-tools');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,6 +11,6 @@ export default defineConfig({
   },
 });
 
-module.exports = defineConfig({
-  plugins: [react(), csslogger()],
-});
+// module.exports = defineConfig({
+//   plugins: [react(), csslogger()],
+// });
