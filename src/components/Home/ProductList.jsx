@@ -37,10 +37,10 @@ const ProductList = () => {
   const fetchProducts = async () => {
     const options = user?.token
       ? {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
       : {};
 
     const queryParams = [];
@@ -82,10 +82,10 @@ const ProductList = () => {
   const fetchServices = async () => {
     const options = user?.token
       ? {
-          headers: {
-            Authorization: `Bearer ${user?.token}`,
-          },
-        }
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      }
       : {};
     setLoading(true);
     try {
@@ -166,10 +166,10 @@ const ProductList = () => {
     setLoading(true);
     const options = user?.token
       ? {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
       : {};
 
     try {
@@ -177,7 +177,7 @@ const ProductList = () => {
         `${BASE_URL}/users/home-screen-searched-products?name=${searchQuery}&category=&subCategory=&page=${paginationNum}  `,
         options
       );
-       setLoading(false);
+      setLoading(false);
       setFilterModal(false);
       console.log(res.data.data, "response");
       setProducts(res?.data?.data);
@@ -204,7 +204,7 @@ const ProductList = () => {
   if (loading) {
     return <Loader />;
   }
-
+  console.log("dsfsfs _services", services);
   return (
     <div className="w-full min-h-[70vh]">
       <div className="w-full flex items-center justify-between mt-6">
@@ -213,11 +213,10 @@ const ProductList = () => {
             <button
               type="button"
               onClick={() => filterProducts("All")}
-              className={`${
-                productCategory == "All"
+              className={`${productCategory == "All"
                   ? "blue-bg text-white"
                   : "bg-[#F7F7F7] text-black"
-              } text-[13px] font-medium rounded-lg px-3 py-2`}
+                } text-[13px] font-medium rounded-lg px-3 py-2`}
             >
               All
             </button>
@@ -227,11 +226,10 @@ const ProductList = () => {
                   key={index}
                   type="button"
                   onClick={() => filterProducts(p?.category)}
-                  className={`${
-                    productCategory === p?.category
+                  className={`${productCategory === p?.category
                       ? "blue-bg text-white"
                       : "bg-[#F7F7F7] text-black"
-                  } text-[13px] font-medium rounded-lg px-3 py-2`}
+                    } text-[13px] font-medium rounded-lg px-3 py-2`}
                 >
                   {p?.category}
                 </button>
@@ -305,27 +303,24 @@ const ProductList = () => {
           <button
             type="button"
             onClick={() => handleFilterModal()}
-            className={`py-3 ${
-              !showServices ? "blue-bg text-white" : "bg-[#F7F7F7] text-black"
-            } text-base flex items-center  gap-1 font-bold px-5 mr-4 rounded-2xl`}
+            className={`py-3 ${!showServices ? "blue-bg text-white" : "bg-[#F7F7F7] text-black"
+              } text-base flex items-center  gap-1 font-bold px-5 mr-4 rounded-2xl`}
           >
             Apply Filters <CiFilter size={25} />
           </button>
           <button
             type="button"
             onClick={() => handleShowServices("products")}
-            className={`py-3 ${
-              !showServices ? "blue-bg text-white" : "bg-[#F7F7F7] text-black"
-            } text-base font-bold px-5 rounded-l-2xl`}
+            className={`py-3 ${!showServices ? "blue-bg text-white" : "bg-[#F7F7F7] text-black"
+              } text-base font-bold px-5 rounded-l-2xl`}
           >
             Products
           </button>
           <button
             type="button"
             onClick={() => handleShowServices("services")}
-            className={`py-3 ${
-              showServices ? "blue-bg text-white" : "bg-[#F7F7F7] text-black"
-            } text-base font-bold px-5 rounded-r-2xl`}
+            className={`py-3 ${showServices ? "blue-bg text-white" : "bg-[#F7F7F7] text-black"
+              } text-base font-bold px-5 rounded-r-2xl`}
           >
             Services
           </button>

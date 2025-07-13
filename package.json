@@ -1,7 +1,7 @@
 {
   "name": "market-toll-terms-conditions",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -28,7 +28,8 @@
     "react-toastify": "^10.0.6",
     "regenerator-runtime": "^0.14.1",
     "swiper": "^11.1.15",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "vite-postcss-tools": "^0.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
